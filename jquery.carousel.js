@@ -25,15 +25,16 @@
     
     self = this;
     $(settings.nextButton).bind("click", function(e) {
-      self.list.animate({left: '-=200px'}, "swing");
+      self.list.animate({left: '-='+self.itemWidth+'px'}, "swing");
     });
     $(settings.prevButton).bind("click", function(e) {
-      self.list.animate({left: '+=200px'}, "swing");
+      self.list.animate({left: '+='+self.itemWidth+'px'}, "swing");
     });
   };
   
   $.fn.extend({
     next: function() {
+      self.list.animate({left: '-='+self.itemWidth+'px'}, "swing");
       if(this.lock)
         return true;
       this.lock = true;
@@ -47,10 +48,5 @@
       });
     }
   });
-  
-  // $.carousel.fn.extend({
-  //   
-  // });
-  
 })(jQuery);
 
