@@ -20,6 +20,7 @@
     
     this.list = $(element);
     this.container = this.list.wrap("<div></div>").parent();
+    this.container.addClass("carousel");
     this.container.css("width", this.itemWidth);
     
     self = this;
