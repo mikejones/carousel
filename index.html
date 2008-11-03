@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>index</title>
+    <link rel="stylesheet" href="reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script src="jquery-1.2.6.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery.carousel.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css" media="screen">
+      div {
+        width: 200px;
+        overflow: hidden;
+      }
+      
+      div > div {
+        position: relative;
+        float: left;
+        width: 200px;
+        height: 100px;
+      }
+      
+      ol {
+        position: relative;
+      }
+      ol, li {
+        float: left;
+        width: 200px;
+        height: 100px;
+      }
+      
+    </style>
+    
+  </head>
+  <body >
+    <ol>
+      <li>
+        <span>&laquo;</span>
+        one
+        <span>&raquo;</span>
+      </li>
+      <li>
+        <span>&laquo;</span>
+        two
+        <span>&raquo;</span>
+      </li>
+      <li>
+        <span>&laquo;</span>
+        three
+        <span>&raquo;</span>
+      </li>
+    </ol>
+    <div style="clear:both"></div>
+    
+    <a id="right">right</a>
+    <a id="left">left</a>
+    
+    <div >
+      <div id="scroll" style="postition:relative; width: 600px">
+        <div style="background-color:grey">one</div>
+        <div style="background-color:white">one</div>
+        <div style="background-color:grey">one</div>
+        
+      </div>
+      
+    </div>
+    
+    <script type="text/javascript" charset="utf-8">
+      WWO = {};
+      WWO.Calendar = {
+        index: 1,
+        lock: false,
+        size: function() {
+          return $('#scroll > div').length;
+        }
+      };
+      
+      $("#right").click(function(){
+        if(WWO.Calendar.lock)
+          return false;
+        WWO.Calendar.lock = true;
+        WWO.Calendar.index++;
+        if(WWO.Calendar.index > WWO.Calendar.size()) {
+          $('#scroll').append("<div style='background-color:blue'>two</div>");
+          $('#scroll').width($('#scroll').width() + 200);
+        }
+        $("#scroll").animate({left: '-=200px'}, 400, "swing", function() {
+          WWO.Calendar.lock=false;
+        });
+      });
+
+      $("#left").click(function(){
+        if(WWO.Calendar.lock)
+          return false;
+        WWO.Calendar.lock = true;
+        if((WWO.Calendar.index-1) == 0) {
+          $('#scroll')
+            .prepend("<div style='background-color:blue'>two</div>")
+            .width($('#scroll').width() + 200)
+            .css("left", "-200px");
+        } 
+        else {
+          WWO.Calendar.index--;
+        }
+        $("#scroll").animate({left: '+=200px'}, 400, "swing", function() {
+          WWO.Calendar.lock=false;
+        });
+      });
+      
+      $(function() {
+        $("ol").carousel({ nextButton: "ol > li > span:last-child", prevButton: "ol > li span:first-child"});
+      });
+      
+    </script>
+  </body>
+</html>
