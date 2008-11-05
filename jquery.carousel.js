@@ -15,7 +15,7 @@
       var lock = false;
       
       $(options.nextButton).bind("click", function(e) {
-        if(!lock || index == list.children().length) {
+        if(!lock && index < (list.children().length-1)) {
           lock=true;
           index++;
           list.animate({left: '-='+listItemWidth+'px'}, 400, "swing", function() { lock=false;});
