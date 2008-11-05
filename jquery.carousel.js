@@ -1,52 +1,35 @@
 (function($){
-  $.fn.carousel = function(o) {
-    return this.each(function() {
-      $.carousel(this, o);
-    });
-  };
-
-  $.carousel = function(element, settings) {
-    settings = $.extend({
+  $.fn.carousel = function(options) {
+    options = $.extend({
        index: 1,
-    }, settings);
-    this.index = 1;
-    this.locked = 1;
+    }, options);
     
-    children = $(element).children();
-    this.itemWidth = $(children[0]).width();
-    totalSize = children.length * this.itemWidth;
-    
-    $(element).css("width", totalSize)
-    
-    this.list = $(element);
-    this.container = this.list.wrap("<div></div>").parent();
-    this.container.addClass("carousel");
-    this.container.css("width", this.itemWidth);
-    
-    self = this;
-    $(settings.nextButton).bind("click", function(e) {
-      self.list.animate({left: '-='+self.itemWidth+'px'}, "swing");
-    });
-    $(settings.prevButton).bind("click", function(e) {
-      self.list.animate({left: '+='+self.itemWidth+'px'}, "swing");
+    return this.each(function() {
+      var list = $(this);
+      var listItemWidth = $(list.children()[0]).width();
+      list.css("width", list.children().length * listItemWidth);
+      
+      var container = container = list.wrap("<div></div>").parent().addClass("carousel").css("width", 200 );
+      
+      var index = 1;
+      var lock = false;
+      
+      $(options.nextButton).bind("click", function(e) {
+        if(!lock) {
+          lock=true;
+          index++;
+          list.animate({left: '-='+listItemWidth+'px'}, 400, "swing", function() { lock=false;});
+        }
+        return false;
+      });
+      $(options.prevButton).bind("click", function(e) {
+        if(!lock) {
+          lock=true;
+          index--;
+          list.animate({left: '+='+listItemWidth+'px'}, 400, "swing", function() { lock=false;});
+        }
+        return false;
+      });
     });
   };
-  
-  $.fn.extend({
-    next: function() {
-      self.list.animate({left: '-='+self.itemWidth+'px'}, "swing");
-      if(this.lock)
-        return true;
-      this.lock = true;
-      this.index++;
-      // if(this.index > this.size()) {
-      //   $('#scroll').append("<div style='background-color:blue'>two</div>");
-      //   $('#scroll').width($('#scroll').width() + 200);
-      // }
-      this.list.animate({left: '-=200px'}, 400, "swing", function() {
-        this.lock=false;
-      });
-    }
-  });
 })(jQuery);
-
