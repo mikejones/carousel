@@ -1,7 +1,7 @@
 (function($){
   $.fn.carousel = function(options) {
     options = $.extend({
-       index: 1,
+       index: 0,
     }, options);
     
     return this.each(function() {
@@ -11,19 +11,20 @@
       
       var container = container = list.wrap("<div></div>").parent().addClass("carousel").css("width", 200 );
       
-      var index = 1;
+      var index = 0;
       var lock = false;
       
       $(options.nextButton).bind("click", function(e) {
-        if(!lock) {
+        if(!lock || index == list.children().length) {
           lock=true;
           index++;
           list.animate({left: '-='+listItemWidth+'px'}, 400, "swing", function() { lock=false;});
         }
         return false;
       });
+      
       $(options.prevButton).bind("click", function(e) {
-        if(!lock) {
+        if(!lock && index > 0) {
           lock=true;
           index--;
           list.animate({left: '+='+listItemWidth+'px'}, 400, "swing", function() { lock=false;});
