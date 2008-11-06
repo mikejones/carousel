@@ -18,7 +18,6 @@
         width: 200px;
         height: 100px;
       }
-      
     </style>
     
   </head>
@@ -35,9 +34,14 @@
     </ul>
     <script type="text/javascript" charset="utf-8">
 
-      
       $(function() {
-        $("ol").carousel({ nextButton: "ol > li span:last-child", prevButton: "ol > li span:first-child"});
+        $("ol").carousel({ 
+          nextButton: "ol > li span:last-child", 
+          prevButton: "ol > li span:first-child",
+          nextMissingItem: function(index) {
+            return "<li><span>&laquo;</span>one.one<span>&raquo;</span></li>";
+          },
+        });
         $("ul").carousel({ nextButton: "ul > li span:last-child", prevButton: "ul > li span:first-child"});
       });
       
