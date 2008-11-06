@@ -5,12 +5,14 @@
     }, options);
     
     return this.each(function() {
-      var list = $(this);
-      var listItemWidth = $(list.children()[0]).width();
       var lock = false;
-      
+      var list = $(this);
+
+      var container = list.wrap("<div></div>").parent()
+      var listItemWidth = $(list.children()[0]).width();
       list.css("width", list.children().length * listItemWidth);
-      var container = container = list.wrap("<div></div>").parent().addClass("carousel").css("width", 200 );
+      list.css("left", "-" + (listItemWidth * options.index) +"px");
+      container.addClass("carousel").css("width", listItemWidth);
       
       $(options.nextButton).bind("click", nextButtonClick);
       $(options.prevButton).bind("click", previousButtonClick);
@@ -18,26 +20,22 @@
       function removeLock() { lock=false };
       
       function previousButtonClick(e) {
-        if(!lock && index > 0) {
+        if(!lock && options.index > 0) {
           lock=true;
-          index--;
+          options.index--;
           list.animate({left: '+='+listItemWidth+'px'}, 400, "swing", removeLock);
         }
         return false;
       }
       
       function nextButtonClick(e) {
-        if(!lock) {
+        if(!lock && options.index < (list.children().length-1)) {
           lock=true;
-          if (index == (list.children().length-1)) {
-            list.append(options.nextMissingItem(index));
-            list.css("width", list.children().length * listItemWidth);
-          }
-          index++;
+          options.index++;
           list.animate({left: '-='+listItemWidth+'px'}, 400, "swing", removeLock);
         }
         return false;
       }
     });
-  };
+  };   
 })(jQuery);

@@ -23,14 +23,14 @@
   </head>
   <body >
     <ol>
-      <li><span>&laquo;</span>one<span>&raquo;</span></li>
-      <li><span>&laquo;</span>one<span>&raquo;</span></li>
-      <li><span>&laquo;</span>one<span>&raquo;</span></li>
+      <li><span>&laquo;</span>one.1<span>&raquo;</span></li>
+      <li><span>&laquo;</span>one.2<span>&raquo;</span></li>
+      <li><span>&laquo;</span>one.3<span>&raquo;</span></li>
     </ol>
     <ul>
-      <li><span>&laquo;</span>two<span>&raquo;</span></li>
-      <li><span>&laquo;</span>two<span>&raquo;</span></li>
-      <li><span>&laquo;</span>two<span>&raquo;</span></li>
+      <li><span>&laquo;</span>two.1<span>&raquo;</span></li>
+      <li><span>&laquo;</span>two.2<span>&raquo;</span></li>
+      <li><span>&laquo;</span>two.3<span>&raquo;</span></li>
     </ul>
     <script type="text/javascript" charset="utf-8">
 
@@ -42,7 +42,11 @@
             return "<li><span>&laquo;</span>one.one<span>&raquo;</span></li>";
           },
         });
-        $("ul").carousel({ nextButton: "ul > li span:last-child", prevButton: "ul > li span:first-child"});
+        $("ul").carousel({ 
+          nextButton: "ul > li span:last-child", 
+          prevButton: "ul > li span:first-child",
+          index: 1,
+        });
       });
       
     </script>
