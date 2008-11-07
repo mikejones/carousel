@@ -8,44 +8,99 @@
     <style type="text/css" media="screen">
       .carousel {
         overflow: hidden;
-        border: 1px solid red;
       }
       ol, ul {
         position: relative;
       }
-      ol, li {
+      li {
         float: left;
         width: 200px;
         height: 100px;
       }
+      .button {
+        cursor: pointer;
+      }
+      
+      #example2, #example1 {
+        clear: both;
+      }
+      
+      #example1 .carousel {
+        border: 1px solid #eee;
+      }
+      
+      #example2 .carousel {
+        border: 1px solid #eee;
+        float: left;
+        display: inline;
+      }
+      
+      #example2 span {
+        float: left;
+      }
+       
+      
+      body {
+        font-family: Arial, "MS Trebuchet", sans-serif;
+        font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+        margin: 2em;
+      }
+      
+      h1 {
+        font: 150% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+      }
+      h2 {
+        font: 125% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+      }
+      h1, h2 {
+        margin: 0.5em 0 0.5em 0;
+      }
+      p {
+        margin: 0.5em 0;
+      }
+      
+      
+      
     </style>
     
   </head>
-  <body >
-    <ol>
-      <li><span>&laquo;</span>one.1<span>&raquo;</span></li>
-      <li><span>&laquo;</span>one.2<span>&raquo;</span></li>
-      <li><span>&laquo;</span>one.3<span>&raquo;</span></li>
-    </ol>
-    <ul>
-      <li><span>&laquo;</span>two.1<span>&raquo;</span></li>
-      <li><span>&laquo;</span>two.2<span>&raquo;</span></li>
-      <li><span>&laquo;</span>two.3<span>&raquo;</span></li>
-    </ul>
+  <body>
+    <h1>Carousel Examples</h1>
+    <div id="example1">
+      <h2>Simple Carousel</h2>
+      <p>Only the previous and next buttons are specified.</p>
+      <ol>
+        <li><span class="button">&laquo;</span>one.1<span class="button">&raquo;</span></li>
+        <li><span class="button">&laquo;</span>one.2<span class="button">&raquo;</span></li>
+        <li><span class="button">&laquo;</span>one.3<span class="button">&raquo;</span></li>
+      </ol>
+    </div>
+    <div id="example2">
+      <h2>Extended Example</h2>
+      <span id="prev" class="button">prev</span>
+      <ul>
+        <li>two.1</li>
+        <li>two.2</li>
+        <li>two.3</li>
+      </ul>
+      <span id="next" class="button">next</span>
+    </div>
     <script type="text/javascript" charset="utf-8">
 
       $(function() {
         $("ol").carousel({ 
           nextButton: "ol > li span:last-child", 
           prevButton: "ol > li span:first-child",
+        });
+        
+        
+        $("ul").carousel({ 
+          nextButton: "#next", 
+          prevButton: "#prev",
+          index: 1,
           nextMissingItem: function(index) {
             return "<li><span>&laquo;</span>one.one<span>&raquo;</span></li>";
           },
-        });
-        $("ul").carousel({ 
-          nextButton: "ul > li span:last-child", 
-          prevButton: "ul > li span:first-child",
-          index: 1,
         });
       });
       
