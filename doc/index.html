@@ -5,37 +5,43 @@
     <script src="jquery-1.2.6.js" type="text/javascript" charset="utf-8"></script>
     <script src="../lib/jquery.carousel.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="doc.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <style type="text/css" media="screen">
       .carousel {
         overflow: hidden;
       }
-      .disabled {
+      .disabled, .locked {
         cursor: default;
-        color: #ddd;
+        color: #bbb;
       }
       
       ol, ul {
         position: relative;
       }
-      li {
+      ol li {
         float: left;
         width: 200px;
         height: 100px;
+      }
+      ul li {
+        float: left;
+        width: 200px;
+        background: #eee;
+
       }
       .button {
         cursor: pointer;
       }
       
-      #example2, #example1 {
+      .example {
         clear: both;
       }
       
-      #example1 .carousel {
-        border: 1px solid #eee;
+      .example .carousel {
+        border: 1px solid #aaa;
       }
       
       #example2 .carousel {
-        border: 1px solid #eee;
         float: left;
         display: inline;
       }
@@ -43,35 +49,16 @@
       #example2 span {
         float: left;
       }
-       
       
-      body {
-        font-family: Arial, "MS Trebuchet", sans-serif;
-        font: 12px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
-        margin: 2em;
+      #next, #prev {
+        margin: 0 1em;
       }
-      
-      h1 {
-        font: 150% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
-      }
-      h2 {
-        font: 125% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
-      }
-      h1, h2 {
-        margin: 0.5em 0 0.5em 0;
-      }
-      p {
-        margin: 0.5em 0;
-      }
-      
-      
-      
     </style>
     
   </head>
   <body>
     <h1>Carousel Examples</h1>
-    <div id="example1">
+    <div class="example">
       <h2>Simple Carousel</h2>
       <p>Only the previous and next buttons are specified.</p>
       <ol>
@@ -80,8 +67,8 @@
         <li><span class="button">&laquo;</span>one.3<span class="button">&raquo;</span></li>
       </ol>
     </div>
-    <div id="example2">
-      <h2>Extended Example</h2>
+    <div id="example2" class="example">
+      <h2>Another Simple Example</h2>
       <span id="prev" class="button">prev</span>
       <ul>
         <li>two.1</li>
