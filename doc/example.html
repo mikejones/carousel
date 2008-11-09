@@ -18,19 +18,15 @@
       }
     
       #example { width: 300px;}
-      ul > li  {
+      ul#calendar li  {
         width: 300px;
         float: left;
       }
 
-      
-      .navigation {
-        width: 100%; 
-      }
-      .navigation .padding {
-        padding: 10px !important; 
-      }
+      .navigation { width: 100%; }
+      .navigation .padding { padding: 10px !important; }
       .navigation .left {float: left;}
+      .navigation .left, .navigation .center, .navigation .right {width: 32%;}
       .navigation .center {
         float: left;
         text-align: center; 
@@ -39,7 +35,6 @@
         text-align: right; 
         float:right;
       }
-      .navigation .left, .navigation .center, .navigation .right {width: 33%;}
 
       ol.calendar {
         width: 100%;
