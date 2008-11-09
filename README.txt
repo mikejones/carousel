@@ -6,14 +6,14 @@ Carousel is a jQuery plugin that provides a simple, basic carousel functionality
 Requirements
 ------------
 
-As this is obviously a jQuery plugin you will need jQuery version 1.2.6 or later included in the page.
+jQuery 1.2.6
 
 
 Supported Browsers
 ------------------
 
-Current supported browsers are:
+Supported browsers are:
 Safari  3
-Firefox 3, 2
-IE:     Not supported
+Firefox 2, 3
+IE:     6
  

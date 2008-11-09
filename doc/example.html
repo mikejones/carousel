@@ -6,185 +6,208 @@
     <script src="../lib/jquery.carousel.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="doc.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+    <style type="text/css" media="screen">
+    
+      .carousel {
+        overflow: hidden;
+      }
+      .disabled, .locked {
+        cursor: default;
+        color: #bbb;
+      }
+    
+      #example { width: 300px;}
+      ul > li  {
+        width: 300px;
+        float: left;
+      }
+
+      
+      .navigation {
+        width: 100%; 
+      }
+      .navigation .padding {
+        padding: 10px !important; 
+      }
+      .navigation .left {float: left;}
+      .navigation .center {
+        float: left;
+        text-align: center; 
+      }
+      .navigation .right {
+        text-align: right; 
+        float:right;
+      }
+      .navigation .left, .navigation .center, .navigation .right {width: 33%;}
+
+      ol.calendar {
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        list-style-position: outside;
+      }
+      ol.calendar li {
+        position: relative;
+        border-bottom: 1px solid #eee; 
+      }
+      ol.calendar li .padding {padding: 5px !important; }
+      ol.calendar li .date {
+        color: #999;
+        margin-right: 10px;
+      }
+      ol.calendar li.today {
+        font-weight: bold;
+        background: #f5f5ff; 
+      }
+      ol.calendar li.today .date {color: #666; }
+      
+    </style>
   </head>
   <body>
 
-    <h2>Workout Calendar</h2>
-    <ul id='calendar-slider'>
-      <li>
-        <h3>October</h3>
-        <ol class='calendar'>
-          <li>
-            <div class='padding'>
-              <div class='date'>Tue 28</div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Wed 29</div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Thu 30</div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Fri 31</div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Sat 01</div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Sun 02</div>
-            </div>
-          </li>
-          <li class='last'>
-            <div class='padding'>
-              <div class='date'>Mon 03</div>
-            </div>
-          </li>
-        </ol>
-      </li>
-      <li>
-        <h3>November</h3>
-        <ol class='calendar'>
-          <li>
-            <div class='padding'>
-              <div class='date'>Tue 04</div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Wed 05</div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Thu 06</div>
-            </div>
-          </li>
-          <li class='today '>
-            <div class='padding'>
-                <div class='date'>Fri 07</div>
-              <div class='action'>
-                <span class='not_started' style='-moz-border-radius: 3px; -webkit-border-radius: 3px;'>
-                  <a href="/users/mike/workout_results/130/edit">Workout B</a>
-                  <a href="/users/mike/workout_results/130/skip" confirm="Skip this workout?" method="put"><img src="/images/skip-button.png?110721293162" /></a>
-                </span>
+    <div id="example">
+      <div class="navigation">
+        <div class="padding">
+          <div class="left">
+            <a id="previous_week_link" href="#">«</a>
+          </div>
+          <div class="center">This Week</div>
+          <div class="right">
+            <a id="next_week_link" href="#">»</a>
+          </div>
+          <div class="clear"/>
+        </div>
+      </div>
+
+      <ul id="calendar">
+        <li>
+          <h3>October</h3>
+          <ol class='calendar'>
+            <li>
+              <div class='padding'>
+                <div class='date'>Tue 28</div>
               </div>
-              <div class="clear"></div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Sat 08</div>
-              <div class='action'>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Wed 29</div>
               </div>
-              <div class="clear"></div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Sun 09</div>
-              <div class='action'>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Thu 30</div>
               </div>
-              <div class="clear"></div>
-            </div>
-          </li>
-          <li class='last '>
-            <div class='padding'>
-              <div class='date'>Mon 10</div>
-              <div class='action'>
-                <span class='not_started' style='-moz-border-radius: 3px; -webkit-border-radius: 3px;'>
-                  <a href="/users/mike/workout_results/131/edit">Workout A</a>
-                  <a href="/users/mike/workout_results/131/skip" confirm="Skip this workout?" method="put"><img src="/images/skip-button.png?110721293145" /></a>
-                </span>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Fri 31</div>
               </div>
-              <div class="clear"></div>
-            </div>
-          </li>
-        </ol>
-      </li>
-      <li>
-        <h3>November</h3>
-        <ol class='calendar'>
-          <li>
-            <div class='padding'>
-              <div class='date'>Tue 11</div>
-              <div class='action'>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Sat 01</div>
               </div>
-              <div class="clear"></div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Wed 12</div>
-              <div class='action'>
-                <span class='not_started' style='-moz-border-radius: 3px; -webkit-border-radius: 3px;'>
-                  <a href="/users/mike/workout_results/132/edit">Workout B</a>
-                  <a href="/users/mike/workout_results/132/skip" confirm="Skip this workout?" method="put"><img src="/images/skip-button.png?110721293169" /></a>
-                </span>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Sun 02</div>
               </div>
-              <div class="clear"></div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Thu 13</div>
-              <div class='action'>
+            </li>
+            <li class='last'>
+              <div class='padding'>
+                <div class='date'>Mon 03</div>
               </div>
-              <div class="clear"></div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Fri 14</div>
-              <div class='action'>
-                <span class='not_started' style='-moz-border-radius: 3px; -webkit-border-radius: 3px;'>
-                  <a href="/users/mike/workout_results/133/edit">Workout A</a>
-                  <a href="/users/mike/workout_results/133/skip" confirm="Skip this workout?" method="put"><img src="/images/skip-button.png?110721293120" /></a>
-                </span>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <h3>November</h3>
+          <ol class='calendar'>
+            <li>
+              <div class='padding'>
+                <div class='date'>Tue 04</div>
               </div>
-              <div class="clear"></div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Sat 15</div>
-              <div class='action'>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Wed 05</div>
               </div>
-              <div class="clear"></div>
-            </div>
-          </li>
-          <li>
-            <div class='padding'>
-              <div class='date'>Sun 16</div>
-              <div class='action'>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Thu 06</div>
               </div>
-              <div class="clear"></div>
-            </div>
-          </li>
-          <li class='last '>
-            <div class='padding'>
-              <div class='date'>Mon 17</div>
-              <div class='action'>
-                <span class='not_started' style='-moz-border-radius: 3px; -webkit-border-radius: 3px;'>
-                  <a href="/users/mike/workout_results/134/edit">Workout B</a>
-                  <a href="/users/mike/workout_results/134/skip" confirm="Skip this workout?" method="put"><img src="/images/skip-button.png?110721293119" /></a>
-                </span>
+            </li>
+            <li class='today '>
+              <div class='padding'>
+                  <div class='date'>Fri 07</div>
               </div>
-              <div class="clear"></div>
-            </div>
-          </li>
-        </ol>
-      </li>
-    </ul>
-    
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Sat 08</div>
+              </div>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Sun 09</div>
+              </div>
+            </li>
+            <li class='last '>
+              <div class='padding'>
+                <div class='date'>Mon 10</div>
+              </div>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <h3>November</h3>
+          <ol class='calendar'>
+            <li>
+              <div class='padding'>
+                <div class='date'>Tue 11</div>
+              </div>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Wed 12</div>
+              </div>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Thu 13</div>
+              </div>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Fri 14</div>
+              </div>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Sat 15</div>
+              </div>
+            </li>
+            <li>
+              <div class='padding'>
+                <div class='date'>Sun 16</div>
+              </div>
+            </li>
+            <li class='last '>
+              <div class='padding'>
+                <div class='date'>Mon 17</div>
+              </div>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $("#calendar").carousel({ nextButton: "#next_week_link", prevButton: "#previous_week_link", index: 1});
+      });
+    </script>
   </body>
 </html>
