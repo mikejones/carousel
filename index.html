@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>index</title>
+    <script src="lib/jquery-1.2.6.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/jquery.carousel.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="lib/reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="doc/doc.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <style type="text/css" media="screen">
+      .disabled, .locked {
+        cursor: default;
+        color: #bbb;
+      }
+      
+      ul#simple {
+        position: relative;
+      }
+      ul#simple li {
+        float: left;
+        width: 200px;
+        background: #eee;
+
+      }
+      .button {
+        cursor: pointer;
+      }
+      
+      .example {
+        clear: both;
+      }
+      
+      .example .carousel {
+        border: 1px solid #aaa;
+        float: left;
+        display: inline;
+      }
+      
+      .example span {
+        float: left;
+      }
+      
+      #next, #prev {
+        margin: 0 1em;
+      }
+    </style>
+    
+  </head>
+  <body>
+    
+    <h1>jQuery Carousel</h1>
+    <dl>
+      <dt>Author</dt>
+      <dd>Michael Jones</dd>
+      <dt>Version</dt>
+      <dd>0.1</dd>
+      <dt>Licence</dt> 
+      <dd>
+        Dual licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a> and <a href="http://www.opensource.org/licenses/gpl-license.php">GPL</a> licenses.
+      </dd>
+      
+    </dl>
+    <h2>Contents</h2>
+    <ol id="contents">
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#introduction">Basic Examples</a></li>
+      <li><a href="doc/example.html">Extended Example</a></li>
+    </ol>
+    
+    <h2 id="introduction">Introduction</h2>
+    <p>
+      Carousel is a <a href="http://jquery.com/">jQuery</a> plugin that provides a really simple carousel functionality for your website. It is in no way meant to be fully functional, but is small, lightweight and  easily adaptable to add your own needs. 
+    </p>
+    <p>Outta da box you get:</p>
+    <ul>
+      <li>Animated Horizontal scrolling</li>
+      <li>Custom start index</li>
+    </ul>
+    <p>So branch the code and hack away!!</p>
+    
+    <h2>Basic Examples</h2>
+    <div class="example">
+      <h3>A Simple Example</h3>
+      <span id="prev" class="button">prev</span>
+      <ul id="simple">
+        <li>one.0</li>
+        <li>one.1</li>
+        <li>one.2</li>
+      </ul>
+      <span id="next" class="button">next</span>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $("#simple").carousel({ 
+          nextButton: "#next", 
+          prevButton: "#prev",
+          index: 1,
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -5,14 +5,35 @@ body {
 }
 
 h1 {
-  font: 150% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  font: 160% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }
 h2 {
+  font: 140% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+h3 {
   font: 125% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }
-h1, h2 {
-  margin: 0.5em 0 0.5em 0;
+h1, h2, h3 {
+  margin: 1em 0 0.5em 0;
 }
 p {
   margin: 0.5em 0;
 }
+
+ol#contents {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+dl {
+  background-color: #eee;
+  border: 1px solid #aaa;
+  padding: 5px;
+  width: 250px;
+}
+
+dt {
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
