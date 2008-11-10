@@ -49,6 +49,8 @@
     
     <h1>jQuery Carousel</h1>
     <dl>
+      <dt>Homepage</dt>
+      <dd>todo</dd>
       <dt>Author</dt>
       <dd>Michael Jones</dd>
       <dt>Version</dt>
@@ -68,14 +70,61 @@
     
     <h2 id="introduction">Introduction</h2>
     <p>
-      Carousel is a <a href="http://jquery.com/">jQuery</a> plugin that provides a really simple carousel functionality for your website. It is in no way meant to be fully functional, but is small, lightweight and  easily adaptable to add your own needs. 
+      Carousel is a very simple <a href="http://jquery.com/">jQuery</a> plugin that will modify any list of items into a horizontal scrolling carousel. There are a few configuration options, but it has purposely been kept feature light to provide a easily adaptable plugin that you can tailer to your specific requirements. 
     </p>
-    <p>Outta da box you get:</p>
+    <h2>Requirements</h2>
+    <p>
+      The dependencies needed to run use it have also kept to a minimum. All you need to do to create a carousel is the following:
+    </p>
     <ul>
-      <li>Animated Horizontal scrolling</li>
-      <li>Custom start index</li>
+      <li>Include jQuery</li>
+      <li>Include the jquery.carousel plugin</li>
+      <li>Explicitly give the list items a width and set their margin and padding to 0</li>
     </ul>
-    <p>So branch the code and hack away!!</p>
+    <code>
+    <p>
+      Once these requirements are met you can call the carousel function (specifying a next and previous button) 
+    </p>
+      $("#calendar").carousel({ 
+        nextButton: "#next_week_link", 
+        prevButton: "#previous_week_link", 
+        index: 1,
+        animateDuration: 1000
+      });
+    </code>
+    
+    <h2>Configuration</h2>
+    <p>
+      The limited configuration privided is:
+    </p>
+    
+    <table border="0">
+      <tr>
+        <th>Key</th>
+        <th>Description</th>
+        <th>Default</th>
+        <th>Required?</th>
+      </tr>
+      <tr>
+        <td>nextButton</td>
+        <td>A jQuery selector</td>
+        <td>-</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>prevButton</td>
+        <td>A jQuery selector</td>
+        <td>-</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>index</td>
+        <td>The index of the list to be the starting point</td>
+        <td>0</td>
+        <td>no</td>
+      </tr>
+      
+    </table>
     
     <h2>Basic Examples</h2>
     <div class="example">
@@ -93,7 +142,7 @@
         $("#simple").carousel({ 
           nextButton: "#next", 
           prevButton: "#prev",
-          index: 1,
+          index: 1
         });
       });
     </script>
