@@ -11,6 +11,19 @@
         list-style: disc inside;
         margin: 1em;
       }
+      
+      table {
+       font: 100% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+      }
+      th {
+        font-weight: bold;
+        background: #ccc;
+      }
+      td, th {
+        padding: 0.25em;
+        border: 1px solid #ccc;
+      }
+      
     </style>
     
   </head>
@@ -34,23 +47,23 @@
     <ol id="contents">
       <li><a href="#introduction">Introduction</a></li>
       <li><a href="#requirements">Requirements</a></li>
-      <li><a href="#requirements">Configurations</a></li>
+      <li><a href="#requirements">Configuration</a></li>
       <li><a href="examples/basic.html">Basic Examples</a></li>
       <li><a href="examples/example.html">Extended Example</a></li>
     </ol>
     
     <h2 id="introduction">Introduction</h2>
     <p>
-      Carousel is a very simple <a href="http://jquery.com/">jQuery</a> plugin that will modify any list of items into a horizontal scrolling carousel. There are a few configuration options, but it has purposely been kept feature light to provide a easily adaptable plugin that you can tailer to your specific requirements. 
+      Carousel is a simple <a href="http://jquery.com/">jQuery</a> plugin that will modify a list of items into a horizontal scrolling carousel. There are a few configuration options, and has purposely been kept very light lightweight in order to provide small, easily adaptable plugin that you can tailer to your specific requirements. 
     </p>
     <h2 id="requirements">Requirements</h2>
     <p>
-      The dependencies needed to run use it have also kept to a minimum. All you need to do to create a carousel is the following:
+      The dependencies require for its use have also kept to a minimum. To create a carousel from a list you need to complete the following:
     </p>
     <ul>
-      <li>Include jQuery</li>
+      <li>Include the jQuery javascript library</li>
       <li>Include the jquery.carousel plugin</li>
-      <li>Explicitly give the list items a width and set their margin and padding to 0</li>
+      <li>Explicitly give a width and set margin and padding to 0 for any list itmes</li>
     </ul>
     <p>
       Once these requirements are met you can call the carousel function (specifying a next and previous button) 
@@ -95,7 +108,9 @@ $("#calendar").carousel({
         <td>0</td>
         <td>no</td>
       </tr>
-      
     </table>
+    <p>
+      The div that wraps the carousel is given a class of 'carousel'.
+    </p>
   </body>
 </html>
