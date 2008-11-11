@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>index</title>
+    <script src="../lib/jquery-1.2.6.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../lib/jquery.carousel.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="../lib/reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="doc.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <style type="text/css" media="screen">
+      .disabled, .locked {
+        cursor: default;
+        color: #bbb;
+      }
+      
+      ul#simple {
+        position: relative;
+      }
+      ul#simple li {
+        float: left;
+        width: 200px;
+        background: #eee;
+
+      }
+      .button {
+        cursor: pointer;
+      }
+      
+      .example {
+        clear: both;
+      }
+      
+      .example .carousel {
+        border: 1px solid #aaa;
+        float: left;
+        display: inline;
+      }
+      
+      .example span {
+        float: left;
+      }
+      
+      #next, #prev {
+        margin: 0 1em;
+      }
+    </style>
+    
+  </head>
+  <body>
+    
+    <h1>jQuery Carousel</h1>
+    <h2>Basic Example</h2>
+    <div class="example">
+      <span id="prev" class="button">prev</span>
+      <ul id="simple">
+        <li>one.0</li>
+        <li>one.1</li>
+        <li>one.2</li>
+      </ul>
+      <span id="next" class="button">next</span>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $("#simple").carousel({ 
+          nextButton: "#next", 
+          prevButton: "#prev",
+          index: 1
+        });
+      });
+    </script>
+  </body>
+</html>

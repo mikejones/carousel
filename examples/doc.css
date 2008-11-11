@@ -20,9 +20,10 @@ p {
   margin: 0.5em 0;
 }
 
-ol#contents {
+ol {
   list-style-type: decimal;
   list-style-position: inside;
+  margin: 1em;
 }
 
 dl {
