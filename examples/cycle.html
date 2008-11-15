@@ -210,19 +210,21 @@
           index: 1,
           animateDuration: 1000,
           nextButtonClick: function(carousel) {
-            if(carousel.onLastItem()){
-              carousel.appendItem("<li>hee hee</li>");
+            if(carousel.onLastItem()) {
+              carousel.moveToFirstItem(carousel.unlockButtons);
             }
-            carousel.moveToNextItem(carousel.unlockButtons);
-          },
-          prevButtonClick: function(carousel){
-            if(carousel.onFirstItem()){
-              carousel.prependItem("<li>hee hee</li>");
+            else {
+              carousel.moveToNextItem(carousel.unlockButtons);
             }
-            carousel.moveToPrevItem(carousel.unlockButtons);
           },
-          
-          moreItems: function(carousel) { return true; }
+          prevButtonClick: function(carousel) {
+            if(carousel.onFirstItem()) {
+              carousel.moveToItem(carousel.size()-1, carousel.unlockButtons);
+            }
+            else {
+              carousel.moveToPrevItem(carousel.unlockButtons);
+            }
+          },
         });
       });
     </script>
