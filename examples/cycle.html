@@ -62,7 +62,7 @@
     <h1>jQuery Carousel</h1>
     <h2>Extended Example</h2>
     <p>
-      This extended example of the carousel implemented the following:
+      This example cycles the carousel round when the last or first element has been reached element has been reached.
     </p>
     <ul>
       <li></li>
@@ -203,12 +203,12 @@
     </div>
     <script type="text/javascript" charset="utf-8">
       $(function() {
-        $.easing.def = 'easeOutBounce';
+        $.easing.def = 'easeInOutCubic';
         $("#calendar").carousel({ 
           nextButton: "#next_week_link", 
           prevButton: "#previous_week_link", 
           index: 1,
-          animateDuration: 1000,
+          animateDuration: 500,
           nextButtonClick: function(carousel) {
             if(carousel.onLastItem()) {
               carousel.moveToFirstItem(carousel.unlockButtons);
