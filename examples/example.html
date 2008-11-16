@@ -62,7 +62,7 @@
     <h1>jQuery Carousel</h1>
     <h2>Extended Example</h2>
     <p>
-      This extended example of the carousel implemented the following:
+      This an example customizes the behavior or the carousel so that is continues to add new elements when the end of the statically loaded elements have been reached. The animation of the transition has also been modified with the jquery easing plugin.
     </p>
     <ul>
       <li></li>
@@ -211,13 +211,13 @@
           animateDuration: 1000,
           nextButtonClick: function(carousel) {
             if(carousel.onLastItem()){
-              carousel.appendItem("<li>hee hee</li>");
+              carousel.appendItem("<li>dyanimcally prepended stuff... ooooooooo</li>");
             }
             carousel.moveToNextItem(carousel.unlockButtons);
           },
           prevButtonClick: function(carousel){
             if(carousel.onFirstItem()){
-              carousel.prependItem("<li>hee hee</li>");
+              carousel.prependItem("<li>dyanimcally appended stuff... ooooooooo</li>");
             }
             carousel.moveToPrevItem(carousel.unlockButtons);
           },
